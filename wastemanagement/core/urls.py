@@ -2,7 +2,7 @@ from django.urls import path
 from core.views import home, scan, contact, complain
 from django.conf import settings
 from django.conf.urls.static import static
-from core.views import WasteImageListView, WasteImageDetailView, WasteImageUploadView
+from core.views import WasteImageListView, WasteImageDetailView, WasteImageUploadView, login_view, logout_view
 
 
 urlpatterns = [
@@ -13,4 +13,6 @@ urlpatterns = [
     path('waste', WasteImageListView.as_view(), name='waste-list'),
     path('waste/upload/', WasteImageUploadView.as_view(), name='waste-upload'),
     path('detail/<int:pk>/', WasteImageDetailView.as_view(), name='waste-detail'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
 ]
